@@ -169,7 +169,7 @@
 
         .photo-grid {
             margin: 30px auto;
-            max-width: 600px;
+            max-width: 300px;
         }
     
         .poetry-container {
@@ -218,25 +218,26 @@
 
         <!-- Wishes Page -->
         <div id="wishes-page">
-            <h1 class="greeting">Happy Friendship Day Cutie <span id="" class="special-name"></span>!</h1>
-            <p class="message">Hope our friendship last forever</p>
+            <h1 class="greeting">I am sorry U_U  <span id="" class="special-name"></span>!</h1>
+            <p class="message">Hope you'll forgive me >_< </p>
             <!--Photo frame 1 -->
             <div class="photo-grid">
                 <div class="photo-item photo-large">
-                    <img src="hehe.jpeg" alt="">
-                    <div class="photo-caption">:)</div>
+                    <img src="OOPS-2.png" alt="">
+                    <div class="photo-caption">:(</div>
                 </div>
                
             </div>
             
             <div class="poetry-container">
                 <div class="poem">
-                    <h3 class="poem-title">Friendship Blooms</h3>
+                    <h3 class="poem-title">My Bad — I Owe You This</h3>
                     <p class="poem-text">
-                        In your smile, the world feels bright,
-                        A friend like you is pure delight.
-                        With strength and grace, you lead the way,
-                        A bond that grows with every day.
+                        I shouldn’t have said what I said—it came out rude and way below the respect you deserve. The 
+                        conversation drifted in a direction I never intended, and my words landed completely wrong. I get why it 
+                        ruined your mood, and I’m not going to hide behind jokes or excuses. I should’ve handled it better 
+                        instead of letting it turn negative. I’m sorry for that moment, and I’ll make sure it doesn’t repeat, because 
+                        you deserved a lot more clarity and respect from me than what you got.
                     </p>
                 </div>
             </div>
@@ -253,39 +254,27 @@
             const submitBtn = document.getElementById('submit-btn');
             const nameDisplay = document.getElementById('name-display');
 
-            // Handle start button click
+            // Handle start button click - skip name page and go directly to wishes page
             startBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 startPage.style.animation = 'fadeOut 0.5s forwards';
                 setTimeout(() => {
                     startPage.style.display = 'none';
-                    namePage.style.display = 'block';
-                    namePage.style.animation = 'fadeIn 0.5s forwards';
+                    // hide name page (if present) and show wishes page directly
+                    if (namePage) namePage.style.display = 'none';
+                    wishesPage.style.display = 'block';
+                    wishesPage.style.animation = 'fadeIn 0.5s forwards';
                 }, 500);
             });
 
-            // Handle submit button click
-            submitBtn.addEventListener('click', function() {
-                const name = nameInput.value.trim().toLowerCase();
-                if (name.toLowerCase() === 'anwesha') {
-                    namePage.style.animation = 'fadeOut 0.5s forwards';
-                    setTimeout(() => {
-                        namePage.style.display = 'none';
-                        wishesPage.style.display = 'block';
-                        wishesPage.style.animation = 'fadeIn 0.5s forwards';
-                        nameDisplay.textContent = name;
-                    }, 500);
-                } else {
-                    alert("Please enter the correct name:Anwesha to proceed!");
-                }
-            });
+            // Removed name/password checks: keep other handlers if needed but disable submit behavior
+            if (submitBtn) {
+                submitBtn.style.display = 'none'; // hide submit button
+            }
+            if (nameInput) {
+                nameInput.style.display = 'none'; // hide input field
+            }
 
-            // Allow Enter key to submit
-            nameInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    submitBtn.click();
-                }
-            });
         });
     </script>
 </body>

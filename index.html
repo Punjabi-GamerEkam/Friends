@@ -199,14 +199,25 @@
             line-height: 1.6;
             font-style: italic;
         }
+
+        /* Fade animations */
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Start Page -->
         <div id="start-page">
-            <h1>Special Friendship Day Surprise!</h1>
-            <a href="#" class="btn" id="start-btn">Click for a Surprise!</a>
+            <h1>Hold On—One Thing First</h1>
+            <a href="#" class="btn" id="start-btn">Tap to Continue</a>
         </div>
 
         <!-- Name Input Page -->
@@ -257,14 +268,14 @@
             // Handle start button click - skip name page and go directly to wishes page
             startBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                startPage.style.animation = 'fadeOut 0.5s forwards';
+                startPage.style.animation = 'fadeOut 0.8s ease-in-out forwards';
                 setTimeout(() => {
                     startPage.style.display = 'none';
                     // hide name page (if present) and show wishes page directly
                     if (namePage) namePage.style.display = 'none';
                     wishesPage.style.display = 'block';
-                    wishesPage.style.animation = 'fadeIn 0.5s forwards';
-                }, 500);
+                    wishesPage.style.animation = 'fadeIn 0.8s ease-in-out forwards';
+                }, 800);
             });
 
             // Removed name/password checks: keep other handlers if needed but disable submit behavior
@@ -279,4 +290,3 @@
     </script>
 </body>
 </html>
-
